@@ -1,3 +1,198 @@
 <resources>
     <string name="app_name">PolyDemo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">myNHA</string>
+
+    <!-- Permissions -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="registration_button_text">Register</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="default_date">03\/22\/1985</string>
+    <!-- Strings related to Registration -->
+    <string name="registration_register">Register</string>
+    <string name="registration_success">You are now registered</string>
+    <string name="registration_failure">We\'re sorry but an error occurred during registration...</string>
+    <string name="registration_password_mismatch">Your passwords do not match</string>
+    <string name="registration_already_registered">You have already registered this email</string>
+    <string name="registration_email_banned">The email you entered is banned from this app</string>
+    <string name="registration_username_empty">Please enter your email as a username</string>
+    <string name="registration_first_name_empty">Please enter your first name</string>
+    <string name="registration_password_empty">Please supply a password</string>
+    <string name="registration_confirm_password_empty">Please confirm your password</string>
+    <string name="registration_weak_password">Your password is weak</string>
+    <string name="registration_invalid_credentials">Invalid credentials</string>
+    <string name="registration_user_collision">Your credentials are tied to another account</string>
+    <string name="registration_password_short">Your password needs to be longer than 7 characters</string>
+    <string name="registration_password_long">Your password needs to be less than 16 characters</string>
+    <string name="registration_email_hint">Email</string>
+    <string name="registration_password_hint">Password</string>
+    <string name="registration_confirm_password">Confirm Password</string>
+    <string name="registration_title_bar_title">myNHA Registration</string>
+    <string name="registration_invalid_email">Email not valid</string>
+
+    <!-- Navigation -->
+    <string name="nav_default_user_name">Testy McTesterson</string>
+    <string name="nav_default_user_school">Greensboro Academy</string>
+    <string name="nav_avatar_content_description">User Avatar</string>
+    <string name="nav_family_title">Family</string>
+    <string name="nav_profile_title">Profile</string>
+    <string name="nav_drop_off_title">Drop Off</string>
+    <string name="nav_pick_up_title">Pick Up</string>
+    <string name="nav_queue_title">Queue</string>
+    <string name="nav_notifications_title">Notifications</string>
+    <string name="nav_manage_title">Manage</string>
+    <string name="nav_home_title">Home</string>
+    <string name="nav_front_desk_title">Front Desk</string>
+    <string name="nav_car_pool_title">Car Pool</string>
+    <string name="nav_logoff">Log Off</string>
+
+    <!-- IconFont -->
+    <string name="times">\ue91a</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- Family -->
+    <string name="family_toolbar_title">Family</string>
+    <string name="family_member_name_title">Family Member Name</string>
+    <string name="family_name_title">Family Name</string>
+    <string name="family_member_type_spinner_title">Family Member Type:</string>
+    <string name="family_member_type_placeholder_text">member type</string>
+    <string name="family_first_name_hint">first name</string>
+    <string name="family_middle_name_hint">middle name</string>
+    <string name="family_last_name_hint">last name</string>
+    <string name="family_primary_phone_number_hint">primary phone</string>
+    <string name="family_secondary_phone_number_hint">secondary phone</string>
+    <string name="family_email_hint">email</string>
+    <string name="family_btn_save_new_member">Save</string>
+    <string name="family_member_contact_section_title">Contact Info</string>
+    <string name="family_member_primary_phone_placeholder_text">(336) 353 &#8211; 3353</string>
+    <string name="family_member_edit_profile">Edit</string>
+    <string name="family_member_save_profile">Save</string>
+    <string name="family_member_edit_title">Edit</string>
+    <string name="family_member_email_demo">hollis@droid.rocks</string>
+    <string name="family_add_new_member_to_family_description">Share this code with your family member to add them to your family: </string>
+    <string name="family_add_new_member_code_demo">123456</string>
+    <string name="family_join_family_description">Enter a six digit password to join a family: </string>
+    <string name="family_join_family_hint">******</string>
+    <string name="family_add_new_family_member_btn_done">Finish</string>
+    <string name="family_child_grade_hint">Kindergarten</string>
+
+    <!-- Add Family Member -->
+    <string name="add_family_member_toolbar_title">Add Family Member</string>
+
+    <!-- Permissions -->
+    <string name="permissions_fine_location_not_granted">Location permission required for drop-off/ pick-up functionality</string>
+
+    <!-- Home -->
+    <string name="home_toolbar_title">Home</string>
+    <string name="txt_notifications_title">Notifications</string>
+
+    <!-- Front Desk -->
+    <string name="front_desk_toolbar_title">Front Desk</string>
+    <string name="front_desk_early_dismissal">Early Dismissal</string>
+    <string name="front_desk_early_dismissal_description">Notify the front desk of early dismissal for your child(ren)</string>
+    <string name="front_desk_sick_day">Sick Day</string>
+    <string name="front_desk_sick_day_description">Notify the front desk that your child(ren) are sick</string>
+    <string name="front_desk_vacation_day">Vacation Day</string>
+    <string name="front_desk_vacation_day_description">Send your family vacation days to the front desk</string>
+    <string name="front_desk_doctor_appointment">Doctor Appointment</string>
+    <string name="front_desk_doctor_appointment_description">Update the front desk about your child(ren) doctor appointment</string>
+
+    <!-- School Notifications -->
+    <string name="school_notification_toobar_title">Notifications</string>
+    <string name="school_notification_title">Title</string>
+    <string name="school_notification_body_hint">enter the notification body here...</string>
+    <string name="school_notification_title_hint">add a title...</string>
+    <string name="school_notification_post_notification_button_text">Post</string>
+
+    <!-- Pick up -->
+    <string name="pick_up_toolbar_title">Pick Up</string>
+
+    <!-- Drop off -->
+    <string name="drop_off_toolbar_title">Drop Off</string>
+
+    <!-- Queue -->
+    <string name="queue_toolbar_title">Queue</string>
+
+    <!-- Queue Family Member -->
+    <string name="queue_family_member_title">Family Member</string>
+
+    <!-- Vehicle -->
+    <string name="vehicle_fragment_title">Vehicle</string>
+    <string name="vehicle_edit_fragment_title">Edit Vehicle</string>
+    <string name="vehicle_btn_save">Save</string>
+    <string name="vehicle_btn_edit">Edit</string>
+    <string name="vehicle_txt_make">Make</string>
+    <string name="vehicle_txt_model">Model</string>
+    <string name="vehicle_txt_year">Year</string>
+    <string name="vehicle_txt_make_hint">make</string>
+    <string name="vehicle_txt_model_hint">model</string>
+    <string name="vehicle_txt_year_hint">year</string>
+    <string name="vehicle_add">Add a Vehicle</string>
+
+    <!-- Car Pool -->
+    <string name="car_pool_title">Car Pool</string>
+    <string name="car_pool_list_title">Your Car Pools</string>
+    <string name="car_pool_txt_empty_car_pool">You are not in a car pool.</string>
+    <string name="car_pool_title_requester">Requester: </string>
+    <string name="car_pool_title_riders">Riders: </string>
+    <string name="car_pool_btn_confirm">Confirm</string>
+    <string name="car_pool_btn_deny">Deny</string>
+    <string name="car_pool_driver_or_requester_title">driver or requester</string>
+    <string name="car_pool_pick_up_title">Will pick up:</string>
+    <string name="car_pool_txt_on">on: </string>
+    <string name="car_pool_txt_pick_up_date">03-22-1985</string>
+    <string name="car_pool_requester">not set</string>
+
+
+    <!-- Car Pool Creation -->
+    <string name="car_pool_creation_title">Car Pool Creation</string>
+    <string name="car_pool_creation_driver_title">Driver: </string>
+    <string name="car_pool_creation_driver_first_last_names">unable to retrieve driver names</string>
+    <string name="car_pool_creation_riders_title">Riders: </string>
+    <string name="car_pool_creation_btn_search_users">Search Users</string>
+    <string name="car_pool_creation_btn_select_family_member">Select Family Member</string>
+    <string name="car_pool_creation_date_title">Date: </string>
+    <string name="car_pool_creation_btn_create_car_pool">Create Car Pool</string>
+    <string name="car_pool_creation_success_message">Car Pool Request Sent!</string>
+
+    <!-- User Search -->
+    <string name="user_search_title">User Look Up</string>
+    <string name="user_search_instructions">Please enter first name, last name and phone number OR email</string>
+    <string name="user_search_first_name_hint">first name</string>
+    <string name="user_search_last_name_hint">last name</string>
+    <string name="user_search_phone_hint">phone number</string>
+    <string name="user_search_email_hint">email</string>
+    <string name="user_search_btn_search_user">Search</string>
+    <string name="user_search_first_name_blank">Please provide a first name</string>
+    <string name="user_search_last_name_blank">Please provide a last name</string>
+    <string name="user_search_provided_phone_number_or_email">You must provide either a phone number OR an email</string>
+    <string name="user_search_searching">Searching...</string>
+
+
+    <string name="PERMISSION_DIALOG_TITLE">Location Permission </string>
+    <string name="PERMISSION_DIALOG_MESSAGE">Hi there! Our app can\'t function properly without your location. Will you please grant it? </string>
+    <string name="PERMISSION_DIALOG_POSITIVE_BUTTON_TEXT">Okay! </string>
+    <string name="PERMISSION_DIALOG_NEGATIVE_BUTTON_TEXT">No thanks! </string>
 </resources>
