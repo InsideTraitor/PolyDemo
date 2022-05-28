@@ -131,12 +131,22 @@
                     <Button
                         android:id="@+id/btn_save"
                         style="@style/DefaultButton"
-                        android:layout_marginTop="32dp"
                         android:layout_marginBottom="48dp"
+                        android:layout_marginTop="15dp"
                         android:text="@string/family_member_save_profile"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_service_area" />
+
+                    <Button
+                        android:id="@+id/btn_service_area"
+                        style="@style/DefaultButton"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/edit_profile_service_area"
+                        app:layout_constraintEnd_toEndOf="@+id/etxt_email"
+                        app:layout_constraintStart_toStartOf="@+id/etxt_email"
                         app:layout_constraintTop_toBottomOf="@+id/etxt_email" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

@@ -9,4 +9,8 @@ class EditProfileViewModel2 : ViewModel() {
     fun saveButtonClicked() {
         listener.saveButtonClicked()
     }
+
+    fun serviceAreaButtonClicked() {
+        listener.serviceAreaButtonClicked()
+    }
 }

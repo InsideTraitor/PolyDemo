@@ -39,6 +39,7 @@ class EditProfileFragment : Fragment() {
 
     fun setClickListeners() {
         binding.btnSave.setOnClickListener { viewModel.saveButtonClicked() }
+        binding.btnServiceArea.setOnClickListener { viewModel.serviceAreaButtonClicked() }
     }
 
     fun bindViews() {
