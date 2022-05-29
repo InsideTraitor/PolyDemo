@@ -1,22 +1,14 @@
 package hollis.inman.polydemo.ui.main.map
 
-import android.Manifest
-import android.os.Build
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -24,9 +16,8 @@ import com.google.android.gms.maps.model.*
 import hollis.inman.polydemo.BaseActivity
 import hollis.inman.polydemo.R
 import hollis.inman.polydemo.databinding.FragmentMapsBinding
-import hollis.inman.polydemo.ui.main.profile.edit.EditProfileViewModel2
-import hollis.inman.polydemo.ui.main.profile.view.ProfileFragment
 import hollis.inman.polydemo.ui.main.utils.PermissionsHelper
+
 
 class MapsFragment : Fragment() {
 
@@ -53,8 +44,6 @@ class MapsFragment : Fragment() {
         PermissionsHelper.enableMyLocation(activity as AppCompatActivity, activity?.supportFragmentManager!!, map)
         map.setOnMapClickListener { viewModel.onSetFencePost(map, it) }
         fusedLocationProvider.lastLocation.addOnSuccessListener { if (it != null) viewModel.setCameraPosition(map, LatLng(it.latitude, it.longitude), 15f) }
-        map.clear()
-
     }
 
     override fun onCreateView(
@@ -90,7 +79,7 @@ class MapsFragment : Fragment() {
     }
 
     fun setClickListeners() {
-        binding.btnSavePolygon.setOnClickListener { viewModel.onSaveMapButtonClicked() }
+        binding.btnSavePolygon.setOnClickListener { viewModel.onSaveMapButtonClicked(map) }
         binding.btnDeletePolygon.setOnClickListener { viewModel.onDeleteMapButtonClick(map) }
         binding.btnEditProfile.setOnClickListener { viewModel.onEditProfileNavigationClick() }
     }

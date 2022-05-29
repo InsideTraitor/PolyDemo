@@ -5,9 +5,17 @@
       <map>
         <entry key="app/src/main/res/drawable/button_default.xml" value="0.2305" />
         <entry key="app/src/main/res/drawable/ic_marker.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_menu_manage.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_menu_share.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_menu_vector_group_outline.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_menu_vector_map.xml" value="0.238" />
         <entry key="app/src/main/res/drawable/ic_vector_arrow_left_outline.xml" value="0.238" />
         <entry key="app/src/main/res/drawable/ic_vector_arrow_left_thick.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_vector_document_text.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_vector_download.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_vector_group_outline.xml" value="0.238" />
         <entry key="app/src/main/res/drawable/ic_vector_lnr_car.xml" value="0.2305" />
+        <entry key="app/src/main/res/drawable/ic_vector_location.xml" value="0.238" />
         <entry key="app/src/main/res/drawable/ic_vector_mail.xml" value="0.2305" />
         <entry key="app/src/main/res/drawable/ic_vector_map.xml" value="0.238" />
         <entry key="app/src/main/res/drawable/ic_vector_phone_outline.xml" value="0.2305" />
