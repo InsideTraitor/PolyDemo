@@ -7,15 +7,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.*
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.google.maps.android.ktx.utils.containsLocation
 import hollis.inman.polydemo.BaseActivity.Companion.JOB_MARKERS
 import hollis.inman.polydemo.BaseActivity.Companion.SERVICE_AREA
 import hollis.inman.polydemo.ui.main.map.subunits.MapsListener
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import java.lang.reflect.Type
 import kotlin.random.Random
 
 
