@@ -1,6 +1,8 @@
 package hollis.inman.polydemo.ui.main.map
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ class MapsFragment : Fragment() {
     lateinit var binding: FragmentMapsBinding
     lateinit var map: GoogleMap
     lateinit var fusedLocationProvider: FusedLocationProviderClient
+    lateinit var sharedPreferences: SharedPreferences
 
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -44,6 +47,7 @@ class MapsFragment : Fragment() {
         PermissionsHelper.enableMyLocation(activity as AppCompatActivity, activity?.supportFragmentManager!!, map)
         map.setOnMapClickListener { viewModel.onSetFencePost(map, it) }
         fusedLocationProvider.lastLocation.addOnSuccessListener { if (it != null) viewModel.setCameraPosition(map, LatLng(it.latitude, it.longitude), 15f) }
+        viewModel.loadSavedAreaAndMarkers(map)
     }
 
     override fun onCreateView(
@@ -70,8 +74,11 @@ class MapsFragment : Fragment() {
     }
 
     fun init() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity())
         setClickListeners()
         setFusedLocationProviderClient()
+        viewModel.initSharedPreferences(sharedPreferences)
+
     }
 
     fun setFusedLocationProviderClient() {

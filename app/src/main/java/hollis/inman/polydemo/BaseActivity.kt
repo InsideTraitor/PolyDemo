@@ -1,7 +1,9 @@
 package hollis.inman.polydemo
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.Toast
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -20,16 +22,31 @@ import hollis.inman.polydemo.ui.main.utils.PermissionsHelper
  */
 class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, MapsListener {
 
+    companion object {
+        /**
+         * SharedPreferences constants
+         */
+        val FIRST_NAME = "firstName"
+        val MIDDLE_NAME = "middleName"
+        val LAST_NAME = "lastName"
+        val PRIMARY_PHONE = "primaryPhone"
+        val EMAIL = "email"
+        val SERVICE_AREA = "serviceArea"
+        val JOB_MARKERS = "jobMarkers"
+    }
+
     /**
      * Class variables
      */
     private lateinit var binding: ActivityMainBinding
+    lateinit var sharedPreferences: SharedPreferences
 
     /**
      * OnCreate Activity Lifecycle call
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         init(savedInstanceState)
     }
 
@@ -62,6 +79,7 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
     }
 
     /*************** Profile Listener Implementations ****************/
+
     override fun goToEditProfile() {
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, EditProfileFragment.newInstance())
@@ -69,6 +87,7 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
     }
 
     /*************** EditProfile Listener Implementations ****************/
+
     override fun saveButtonClicked() {
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, ProfileFragment.newInstance())

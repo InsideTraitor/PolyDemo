@@ -1,13 +1,23 @@
 package hollis.inman.polydemo.ui.main.map
 
+import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.google.maps.android.ktx.utils.containsLocation
+import hollis.inman.polydemo.BaseActivity.Companion.JOB_MARKERS
+import hollis.inman.polydemo.BaseActivity.Companion.SERVICE_AREA
 import hollis.inman.polydemo.ui.main.map.subunits.MapsListener
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.lang.reflect.Type
 import kotlin.random.Random
+
 
 class MapViewModel: ViewModel() {
 
@@ -16,12 +26,16 @@ class MapViewModel: ViewModel() {
      */
     val minPolyPoints = 2
     val maxPolyPoints = 4
+    val gson: Gson = Gson()
+
     enum class MarkerType {FENCEPOST, JOB}
 
     lateinit var listener: MapsListener
     lateinit var polygon: PolygonOptions
     lateinit var cameraPosition: CameraPosition
     lateinit var latLngBounds: LatLngBounds
+    lateinit var sharedPreferences: SharedPreferences
+
     var polyPoints: MutableList<LatLng> = mutableListOf()
     var jobMarkers: MutableList<MarkerOptions> = mutableListOf()
     var savedJobMarkers: MutableList<MarkerOptions> = mutableListOf()
@@ -86,9 +100,43 @@ class MapViewModel: ViewModel() {
             map.clear()
             loadPolygon(polygon, map)
             resetMarkers(map, savedJobMarkers)
+            saveServiceAreaAndJobMarkers()
+        } else if (polyPoints.size >= maxPolyPoints){
+            listener.errorTooManyPoints()
         } else {
             listener.errorTooFewPoints()
         }
+    }
+
+    /**
+     * Save service area and job markers
+     */
+    fun saveServiceAreaAndJobMarkers() {
+        val editor = sharedPreferences.edit()
+        editor.putString(SERVICE_AREA, gson.toJson(polyPoints))
+        editor.putString(JOB_MARKERS, gson.toJson(savedJobMarkers))
+        editor.commit()
+    }
+
+    /**
+     * Load saved service area and job markers
+     */
+    fun loadSavedAreaAndMarkers(map: GoogleMap) {
+        // TODO: fix serialization
+//        val serviceAreaType: Type = object : TypeToken<MutableList<LatLng>>() {}.type
+//        val jobMarkerType: Type = object : TypeToken<MutableList<LatLng>>() {}.type
+//        val serviceArea: MutableList<LatLng> = gson.fromJson(sharedPreferences.getString(SERVICE_AREA, "") ?: "" , serviceAreaType)
+//        val savedJobMarkers: MutableList<MarkerOptions> = gson.fromJson(sharedPreferences.getString(JOB_MARKERS, "") ?: "", jobMarkerType)
+//
+//        if (!serviceArea.equals("") && !savedJobMarkers.equals("")) {
+//           val polygon = PolygonOptions()
+//                .clickable(true)
+//                .fillColor(fillColor)
+//                .strokeWidth(0f)
+//                .addAll(serviceArea)
+//            loadPolygon(polygon, map)
+//            resetMarkers(map, savedJobMarkers)
+//        }
     }
 
     /**
@@ -202,5 +250,12 @@ class MapViewModel: ViewModel() {
         } else {
             listener.errorTooManyPoints()
         }
+    }
+
+    /**
+     * Set shared preferences so we can persist our data
+     */
+    fun initSharedPreferences(sharedPreferences: SharedPreferences) {
+        this.sharedPreferences = sharedPreferences
     }
 }

@@ -15,10 +15,4 @@ class ProfileViewModel() : ViewModel() {
     fun onEditButtonClick() {
         listener.goToEditProfile()
     }
-
-    /**
-     * Handle save button click
-     */
-
-
 }

@@ -1,7 +1,9 @@
 package hollis.inman.polydemo.ui.main.profile.view
 
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +19,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
     private lateinit var binding: FragmentProfileBinding
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -31,7 +34,14 @@ class ProfileFragment : Fragment() {
         init()
     }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        loadSharedPreferences()
+    }
+
     private fun init() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity())
+        loadSharedPreferences()
         setClickListeners()
     }
 
@@ -41,5 +51,12 @@ class ProfileFragment : Fragment() {
 
     private fun bindViews() {
         binding = FragmentProfileBinding.inflate(layoutInflater)
+    }
+
+    fun loadSharedPreferences() {
+        binding.txtFirstName.setText(sharedPreferences.getString(BaseActivity.FIRST_NAME, "first name"))
+        binding.txtLastName.setText(sharedPreferences.getString(BaseActivity.LAST_NAME, "last name"))
+        binding.txtPrimaryPhone.setText(sharedPreferences.getString(BaseActivity.PRIMARY_PHONE, "primary phone"))
+        binding.txtEmail.setText(sharedPreferences.getString(BaseActivity.EMAIL, "email"))
     }
 }
