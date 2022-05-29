@@ -13,7 +13,6 @@ import hollis.inman.polydemo.ui.main.profile.edit.EditProfileFragment
 import hollis.inman.polydemo.ui.main.profile.edit.subunits.EditProfileListener
 import hollis.inman.polydemo.ui.main.profile.view.ProfileFragment
 import hollis.inman.polydemo.ui.main.profile.view.subunits.ProfileListener
-import hollis.inman.polydemo.ui.main.utils.PermissionUtils
 import hollis.inman.polydemo.ui.main.utils.PermissionsHelper
 
 /**
@@ -25,7 +24,6 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
      * Class variables
      */
     private lateinit var binding: ActivityMainBinding
-    private lateinit var permissionsHelper: PermissionsHelper
 
     /**
      * OnCreate Activity Lifecycle call
@@ -42,7 +40,6 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
     private fun init(savedInstanceState: Bundle?) {
         bindViews()
         showInitialFragment(savedInstanceState)
-        permissionsHelper = PermissionsHelper(this, this)
     }
 
     /**
@@ -69,42 +66,46 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
      * Display Map Request Fine/Coarse Permission to User
      */
     fun requestMapPermission() {
-        permissionsHelper.getMapsPermission()
+        PermissionsHelper.requestMapsPermission(this, this)
     }
 
+    /*************** Profile Listener Implementations ****************/
     override fun goToEditProfile() {
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, EditProfileFragment.newInstance())
             .commitNow()
     }
 
+    /*************** EditProfile Listener Implementations ****************/
     override fun saveButtonClicked() {
-        //TODO: Add save logic
-
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, ProfileFragment.newInstance())
             .commitNow()
     }
 
     override fun serviceAreaButtonClicked() {
-//        PermissionUtils.requestLocationPermissions(this, )
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, MapsFragment.newInstance())
             .commitNow()
     }
 
-    override fun onSaveMapButtonClicked() {
-        supportFragmentManager.beginTransaction()
-            .replace(binding.container.id, EditProfileFragment.newInstance())
-            .commitNow()
-    }
+    /*************** Map Listener Implementations ****************/
 
-    override fun onSetFencePost(map: GoogleMap, position: LatLng) {
-        Toast.makeText(this, position.latitude.toString() + ", " + position.longitude.toString(), Toast.LENGTH_SHORT).show()
-        map.addMarker(MarkerOptions().position(position).title(position.latitude.toString() + ", " +position.longitude.toString()))
+    override fun onSaveMapButtonClicked() {
+        Toast.makeText(this, "Service area saved!", Toast.LENGTH_SHORT).show()
     }
 
     override fun errorTooFewPoints() {
         Toast.makeText(this, "Too few points", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun errorTooManyPoints() {
+        Toast.makeText(this, "Too many points", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onEditProfileNavigationClick() {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.container.id, EditProfileFragment.newInstance())
+            .commitNow()
     }
 }

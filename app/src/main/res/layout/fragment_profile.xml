@@ -42,7 +42,7 @@
                     android:layout_marginTop="32dp"
                     android:src="@drawable/ic_vector_phone_outline"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_vehicle_avatar" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_service_area_icon" />
 
                 <ImageView
                     android:id="@+id/img_email"
@@ -54,12 +54,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/img_primary_phone" />
 
                 <ImageView
-                    android:id="@+id/img_vehicle_avatar"
+                    android:id="@+id/img_service_area_icon"
                     android:layout_width="@dimen/profile_icon_width"
                     android:layout_height="@dimen/profile_icon_height"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="32dp"
-                    android:src="@drawable/ic_vector_lnr_car"
+                    android:src="@drawable/ic_vector_map"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_user_avatar" />
 
@@ -90,21 +90,21 @@
                     style="@style/DefaultTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/family_member_type_placeholder_text"
+                    android:text="@string/profile_member_desc"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_vehicle_description"
+                    android:id="@+id/txt_service_area_desc"
                     style="@style/DefaultTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="@string/vehicle_add"
+                    android:text="@string/profile_service_area_desc"
                     android:textAppearance="@style/DefaultSmallTextView"
-                    app:layout_constraintBottom_toBottomOf="@+id/img_vehicle_avatar"
-                    app:layout_constraintStart_toEndOf="@+id/img_vehicle_avatar"
-                    app:layout_constraintTop_toTopOf="@+id/img_vehicle_avatar" />
+                    app:layout_constraintBottom_toBottomOf="@+id/img_service_area_icon"
+                    app:layout_constraintStart_toEndOf="@+id/img_service_area_icon"
+                    app:layout_constraintTop_toTopOf="@+id/img_service_area_icon" />
 
                 <TextView
                     android:id="@+id/txt_primary_phone"
