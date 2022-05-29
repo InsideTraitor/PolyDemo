@@ -31,7 +31,6 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init(savedInstanceState)
-        requestMapPermission()
     }
 
     /**
@@ -60,13 +59,6 @@ class BaseActivity : AppCompatActivity(), ProfileListener, EditProfileListener, 
                 .replace(binding.container.id, ProfileFragment.newInstance())
                 .commitNow()
         }
-    }
-
-    /**
-     * Display Map Request Fine/Coarse Permission to User
-     */
-    fun requestMapPermission() {
-        PermissionsHelper.requestMapsPermission(this, this)
     }
 
     /*************** Profile Listener Implementations ****************/
